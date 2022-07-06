@@ -1,0 +1,111 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+.btn{
+    text-align: center;
+   margin: 70px auto 0;
+   font-family: Book Antiqua;
+    }
+
+.btn a{
+    width: 150px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 0;
+    border: .5px solid black;
+    position: relative;
+
+}
+.btn a span{
+    width: 0;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+
+}
+.form{
+    text-align: center;
+}
+
+.form input[type="text"]{
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    height: 40px;
+    font-size: 16px;
+}
+
+.form label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-align: left;
+}
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #006994;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: lightgray;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    
+}
+mat-icon {
+    margin-right: 8px;
+}
+ng-select{
+    width: 100%;
+    padding: 7px 20px;
+    margin: 8px 0;
+   
+    background-color: white;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #000;
+}
+
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+ 
