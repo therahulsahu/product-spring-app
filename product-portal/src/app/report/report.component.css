@@ -1,0 +1,162 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ebebeb;
+  
+  }
+  
+  /* li {
+    float: left;
+  }
+   */
+  /* li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  } */
+ 
+  .nav_links{
+    list-style: none;
+  }
+  .nav_links li{
+    display: inline;
+    padding: 0px 20px;
+  }
+  
+  .nav_links li a{
+    transition: all 0.3s ease 0s;
+    color: black;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .nav_links li a:hover{
+    color: palevioletred;
+  }
+  
+  .nav_links li a{
+    transition: all 0.3s ease 0s;
+  }
+  .log{
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    border: none;
+  }
+  .log:hover{
+    color: palevioletred;
+  }
+  .menu{
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: x-large;
+  }
+  .menu:hover{
+    color: palevioletred;
+  }
+   
+  
+  
+  h1{
+      font-size: 50px;
+      text-decoration: wavy;
+      font-family: fantasy;
+      text-align: center;
+      color: black;
+      margin-top: 200px;
+  }
+  
+  a{
+    font-size: 20px;
+    font-family: fantasy;
+  }
+  mat-form-field{
+    font-size: 20px;
+  
+    font-family: fantasy;
+  
+    color: black;
+
+  }
+  .d{
+    margin-top: 0px;
+  }
+ 
+
+
+
+
+.mat-sidenav {
+    /* margin: 16px;
+    width: 200px; */
+    border-right: none;
+    background: palevioletred;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.content {
+    height: calc(98vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: lightgray;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    
+}
+mat-icon {
+    margin-right: 8px;
+}
+.example-container {
+  width: 1436px;
+  height: 727px;
+  margin: 2px;
+  border: 1px solid #555;
+}
+.drop {
+    margin-left: 500px ;
+    margin-bottom: 20px ;
+}
+.d{
+    margin-left: 540px;
+    background-color: palevioletred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: fantasy;
+    
+}
