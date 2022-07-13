@@ -1,162 +1,19 @@
-  <!-- css -->
-<style>
-.text{
-           text-align: center;
-           font-size: 50px;
-           font-style: italic;
-  }
-.list{
-    text-align: center;
-  }
-table {
-  width: 75%;
-  border-collapse: collapse;
-  margin: auto;
-  }
-table.center {
-  margin-left: auto; 
-  margin-right: auto;
-  }
-th {
-  padding-top: 5px;
-  padding-bottom: 10px;
-  text-align: left;
-  background-color: #006994;
-  color: white;
-  }
-th, td {
-  padding: 8px;
-  text-align: left;
-  }
-tr:nth-child(odd) {
-  background-color: #f2f2f2;
-    }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  }
-li {
-  float: left;
-  }
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 10px 16px;
-  text-decoration: none;
-  }
-.active {
-  background-color: #006994;
-  }
-h1{
-  font-family: fantasy;
-  color: black;
-  font-weight: bold;
-  }
-a{
-  font-size: 25px;
-  font-family: fantasy;
-  }
-mat-sidenav {
-    margin: 16px;
-    width: 200px;
-    border-right: none;
-    background:  #006994 ;
-    color: white;
-    border-radius: 5px;
-    padding: 16px;
-    text-align: center;
-  }
-.content {
-    height: calc(100vh - 98px);
-    border-radius: 10px;
-    margin: 16px;
-    margin-left: 32px;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: lightgray;
-  }
-mat-sidenav-container {
-    height: calc(100vh - 65px);
-  }
-.menu-button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 1rem;
-  }
-mat-icon {
-    margin-right: 8px;
-}
-li .menu-button{
-  color: #f2f2f2;
-  }
-.search-opt{
-      width: 15%;
-      margin: 50px 20px 0 200px;
-  }
-.del {
-  background-color: #f44336;
-  color: white;
-  padding: 6px 15px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-  font-family: fantasy;
-  border: none;
-  font-size: 1.5em;
-  }
-del:hover {
-  opacity:1;
-  }
-  .ad {
-  background-color: green;
-  color: white;
-  padding: 6px 24px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-  font-family:fantasy;
-  border: none;
-  font-size: 1.5em;
-  }
-ad:hover {
-  opacity:1;
-  }
-</style>
-
-
-
-
-
-
-
-
-
-<!-- html code -->
 <!-- TopNavBar  -->
 <ul>
-  <li>
-    <button (click)="opened=!opened" mat-button class="menu-button"><mat-icon>menu</mat-icon></button>
-  </li>
-  <li>
-    <a routerLink="/dashboard"><mat-icon>home</mat-icon>Mary's Product List</a>
-  </li>
-  <li style="float:right"><a class= "active" >
-    <mat-icon aria-hidden="false" aria-label="Example Logout icon">logout</mat-icon>Logout</a>
-  </li>
+  <button (click)="opened=!opened" mat-button class="menu-button"><mat-icon>menu</mat-icon></button>
+  <nav>
+    <ul class="nav_links">
+       <li> <a routerLink="/dashboard"><mat-icon>home</mat-icon>Home</a></li>
+       <li><button class="ab" routerLink="/add"  ><mat-icon>add</mat-icon>Add Items</button></li>
+       <li><a routerLink="/product" ><mat-icon>list</mat-icon>List</a></li>
+    </ul>
+</nav>
+ <a class="logout" routerLink="">
+  <mat-icon aria-hidden="false" aria-label="Example Logout icon">logout</mat-icon>Logout</a>
 </ul>
+
+
+
 
 <!-- SideNavBar  -->
 <mat-sidenav-container>
@@ -174,34 +31,80 @@ ad:hover {
               <mat-icon>list</mat-icon>
               <span>Show Products</span>
           </button>
+          
           <button mat-button class="menu-button">
               <mat-icon>help</mat-icon>
               <span>Help</span>
           </button>
+
+          <button mat-button class="menu-button" routerLink="/report">
+            <mat-icon>description</mat-icon>
+            <span>Generate Report</span>
+        </button>
   </mat-sidenav>
  <mat-sidenav-content>
-    
-
-  <!-- search -->
-<div class="list">
-<mat-icon>search</mat-icon>
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Search for...">
-</mat-form-field>
-
-<!-- delete -->
- <div  style="float:right">  
-  <button class="del" (click)="DeleteData()"> <mat-icon>delete</mat-icon>Delete</button>
-      </div>  
 
 
-<div  style="float:right">  
- <button class="ad" routerLink="/add"> <mat-icon>add</mat-icon>add</button>
-      </div> 
+
+
+
+
+<!-- content -->
+
+ <!-- search -->
+ <form class="example-form">
+  
+    <mat-icon>search</mat-icon>
+    <mat-form-field>
+      <input  matInput class="search"  (keyup)="applyFilter($any($event.target).value)" placeholder="Search...">
+    </mat-form-field>
+</form>
+
+
+   <!-- delete -->
+ <!-- <div  style="float:right">  
+  <button class="del" (click)="DeleteData()"> <mat-icon>delete</mat-icon></button>
+      </div>   -->
      
+  <!-- add  -->
+<div style="float: right">
+<button class="ad" routerLink="/add" ><mat-icon>add</mat-icon>Add Products</button></div> 
 
-<div style="padding: 70px 20px 20px 20px" class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" > 
+<!-- help -->
+<h1 style="font-family:fantasy"><mat-icon>help</mat-icon>products list</h1>
+
+ 
+
+
+
+
+
+  <!-- Generate Report -->
+  
+    <!-- <div mat-button  class="report"> -->
+      <!-- <div class="dropdown"> -->
+        <button class="Generate" routerLink="/report"><mat-icon>description</mat-icon>
+       Generate Report</button>
+          <!-- <div class="dropdown-content">
+            <button class="report-btn">Excel</button><br>
+            <button class="report-btn" (click)="pdf()">PDF</button> -->
+            
+          <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+ 
+
+    <button mat-icon-button color="warn" class="del" (click)="deleteProduct()">
+      <mat-icon>delete_forever</mat-icon></button>  
+       
+
+<!--table  -->
+<div style="padding: 20px 20px 20px 20px" class="mat-elevation-z8">
+  
+  <!-- <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Row</button> -->
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"> 
+
+    
 
     <!-- select box -->
     <ng-container matColumnDef="checked">
@@ -211,10 +114,10 @@ ad:hover {
           [indeterminate]="selection.hasValue() && !isAllSelected()">
 </mat-checkbox> 
 </th>
-      <td mat-cell *matCellDef="let element">
+      <td mat-cell *matCellDef="let row">
         <mat-checkbox (click)="$event.stopPropagation()"
-                      (change)="$event ? selection.toggle(element) : null"
-                      [checked]="selection.isSelected(element)" [(ngModel)]="element.checked">
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)" [(ngModel)]="row.checked">
         </mat-checkbox>
       </td>
     </ng-container> 
@@ -222,46 +125,57 @@ ad:hover {
     <!-- data -->
      <ng-container matColumnDef="productId">
        <th mat-header-cell mat-sort-header *matHeaderCellDef sortActionDescription="Sort by number"> ID </th>
-       <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+       <td mat-cell *matCellDef="let row"> {{row.productId}} </td>
      </ng-container> 
      <ng-container matColumnDef="productName">
        <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
-       <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+       <td mat-cell *matCellDef="let row"> {{row.productName}} </td>
      </ng-container>
      <ng-container matColumnDef="productType">
        <th mat-header-cell mat-sort-header *matHeaderCellDef> Type </th>
-       <td mat-cell *matCellDef="let element"> {{element.productType}} </td>
+       <td mat-cell *matCellDef="let row"> {{row.productType}} </td>
      </ng-container>
      <ng-container matColumnDef="productDesc">
        <th mat-header-cell mat-sort-header *matHeaderCellDef> Description </th>
-       <td mat-cell *matCellDef="let element"> {{element.productDesc}} </td>
+       <td mat-cell *matCellDef="let row"> {{row.productDesc}} </td>
      </ng-container>
      <ng-container matColumnDef="productQuantity">
          <th mat-header-cell mat-sort-header *matHeaderCellDef> Quantity </th>
-         <td mat-cell *matCellDef="let element"> {{element.productQuantity}} </td>
+         <td mat-cell *matCellDef="let row"> {{row.productQuantity}} </td>
      </ng-container>
      <ng-container matColumnDef="productPrice">
          <th mat-header-cell mat-sort-header *matHeaderCellDef> Price </th>
-         <td mat-cell *matCellDef="let element"> {{element.productPrice}} </td>
+         <td mat-cell *matCellDef="let row"> {{row.productPrice}} </td>
      </ng-container>
-     <ng-container matColumnDef="Productmul">
-      <th mat-header-cell mat-sort-header *matHeaderCellDef> Mul Desc </th>
-      <td mat-cell *matCellDef="let element"> {{element.Productmul}} </td>
+     <!-- <ng-container matColumnDef="date">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let row"> {{row.date}} </td>
   </ng-container>
   <ng-container matColumnDef="upload">
     <th mat-header-cell mat-sort-header *matHeaderCellDef> file-upload</th>
-    <td mat-cell *matCellDef="let element"> {{element.upload}} </td>
+    <td mat-cell *matCellDef="let row"> {{row.upload}} </td>
 </ng-container>
 <ng-container matColumnDef="check">
   <th mat-header-cell mat-sort-header *matHeaderCellDef> Details</th>
-  <td mat-cell *matCellDef="let element"> {{element.check}} </td>
+  <td mat-cell *matCellDef="let row"> {{row.check}} </td>
+</ng-container> -->
+
+<!-- Action Column -->
+<ng-container matColumnDef="action">
+  <th mat-header-cell *matHeaderCellDef> Action </th>
+  <td mat-cell *matCellDef="let row" class="action-link"> 
+    <button mat-icon-button color="primary" (click)="editProduct(row)">
+      <mat-icon>edit</mat-icon></button> | 
+      
+  </td>
 </ng-container>
      
-  <!-- data -->
 
+  <!-- data -->
      
      <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
      <tr mat-row *matRowDef="let row; columns: displayedColumns;" > </tr>
+     
    </table>
 
   
@@ -272,3 +186,4 @@ ad:hover {
       </mat-paginator>
     </div>
  </div>
+ 
