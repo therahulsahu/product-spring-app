@@ -9,4 +9,4 @@ This repository contains a collection of Spring boot micro-services and a fronte
 |  3  | email-notification-service | ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)    | Backend service responsible for automatic email and sms notification after product creation.  |
 |  4  | report-generation-service  | ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)    | Backend service responsible for report generation of products. (PDF, Excel, CSV)              |
 
-
+<img width="729" alt="image" src="https://user-images.githubusercontent.com/55999865/178815246-ff5e4bcb-2de8-4b1b-90fa-0cdee0a53353.png">
