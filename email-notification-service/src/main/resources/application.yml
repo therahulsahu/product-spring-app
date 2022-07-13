@@ -1,0 +1,4 @@
+twilio:
+  account_sid: <<account id>>
+  auth_token: <<Auth token>>
+  from_number: "+17315032986"

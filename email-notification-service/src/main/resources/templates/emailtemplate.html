@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Registration confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+    body {
+      font-family: calibri, 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    }
+    a.link {
+      border: solid 1px #000;
+      background-color: #000;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      display: block;
+      width: 360px;
+      text-align: center;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+<h1>A New Product has been Created !</h1>
+<div>Product Service App</b> !</div>
+<p>
+    Product Desc :
+    <br/><br/>
+    Name : <b th:text="${productname}">productname</b><br/>
+    <br/>
+</p>
+<br>
+<p>
+    <img src="images/spring.png" data-th-src="|cid:springLogo|" height="80" />
+</p>
+<p>
+    Regards, <br />
+    &emsp; <em>Product Service APP</em>
+</p>
+</body>
+</html>
