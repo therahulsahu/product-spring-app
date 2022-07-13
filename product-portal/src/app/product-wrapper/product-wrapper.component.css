@@ -45,14 +45,14 @@ h1{
 
 
 
-mat-sidenav {
-    margin: 16px;
-    width: 200px;
+.mat-sidenav {
+    /* margin: 16px;
+    width: 200px; */
     border-right: none;
     background: #006994;
     color: white;
-    border-radius: 10px;
-    padding: 16px;
+    /* border-radius: 10px; */
+    padding: 10px;
     text-align: center;
 }
 
@@ -60,7 +60,7 @@ mat-sidenav {
     height: calc(100vh - 98px);
     border-radius: 10px;
     margin: 16px;
-    margin-left: 32px;
+    margin-left: 30px;
 
     display: flex;
     justify-content: center;
@@ -85,5 +85,11 @@ mat-sidenav-container {
 }
 mat-icon {
     margin-right: 8px;
+}
+.example-container {
+  width: 1436px;
+  height: 727px;
+  margin: 2px;
+  border: 1px solid #555;
 }
 
