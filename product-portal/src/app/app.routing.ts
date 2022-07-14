@@ -4,6 +4,7 @@ import { ProductComponent } from './product';
 import { AddComponent } from './add';
 import { LoginComponent } from './login';
 import { ProductWrapperComponent } from './product-wrapper/product-wrapper.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
     
@@ -12,6 +13,8 @@ const routes: Routes = [
     { path: 'add', component: AddComponent },
     { path: 'logout', component: LoginComponent},
     { path: 'dashboard', component: ProductWrapperComponent},
+    { path: 'report', component: ReportComponent},
+    
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

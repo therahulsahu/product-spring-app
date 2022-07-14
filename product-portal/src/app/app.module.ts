@@ -34,6 +34,12 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgSelectModule } from "@ng-select/ng-select";
 import { MatNativeDateModule } from '@angular/material/core';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ReportComponent } from './report/report.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +47,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     AddComponent,
     LoginComponent,
     ProductWrapperComponent,
+    ReportComponent,
+    DialogBoxComponent,
 
 
   ],
@@ -74,11 +82,15 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatProgressBarModule,
     MatDatepickerModule,
     NgSelectModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
+
+    
 
  
   ],
   providers: [ SortService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
