@@ -92,7 +92,7 @@ public class ProductController {
 	}
 
 
-	@GetMapping("/excel")
+	@GetMapping("/download/excel")
 	public void exportToExcelAndDownload(HttpServletResponse response) throws IOException {
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
@@ -164,10 +164,10 @@ public class ProductController {
 		return reportGenerationClient.downloadPdf();
 	}
 
-	@GetMapping("/download/excel")
-	public void downloadExcel(HttpServletResponse res) {
-		reportGenerationClient.exportToExcelAndDownload();
-	}
+//	@GetMapping("/download/excel")
+//	public void downloadExcel(HttpServletResponse res) {
+//		reportGenerationClient.exportToExcelAndDownload();
+//	}
 
 	@GetMapping("/download/csv")
 	public void downloadCsv(HttpServletResponse res) {

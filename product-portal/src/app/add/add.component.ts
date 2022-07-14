@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild , Input } from '@angular/core'
 import { ProductService } from '../product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
-import { IDropdownSettings, } from 'ng-multiselect-dropdown'
 
 
 interface Price {
