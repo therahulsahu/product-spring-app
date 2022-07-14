@@ -1,112 +1,7 @@
-
-   <style>
-    
-       .text{
-           text-align: center;
-           font-size: 50px;
-           font-style: italic;
-       }
-       .form{
-           width: 400px;
-           height: 1050px;
-           background: rgb(0, 0, 0, 0.3);
-           color: #fff;
-           top: 100%;
-           left: 50%;
-           position: absolute;
-           transform: translate(-50%, -50%);
-           box-sizing: border-box;
-           padding: 30px 30px;
-               }
-
-.form input[type="text"]{
-    border: none;
-    border: 1px solid #ccc;
-    outline: none;
-    height: 30px;
-    width: 350px;
-}
-.mul{
-  border: none;
-  color: #fff;
-    outline: none;
-    height: 30px;
-    width: 250px;
-}
-
-.form label{
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    text-align: left;
-}
-
-.button
-{
-    border: none;
-    outline: none;
-    height: 40px;
-    background: #1c8adb;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 10px;
-    width: 100px;
-}
-.button:hover{
-    cursor: pointer;
-    color: #000;
-}
-p, label{
-  text-align:left;
-  font-family: Abril Fatface;
-  font-size: 20px;
-
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 10px 16px;
-  text-decoration: none;
-}
-
-.active {
-  background-color: #006994;
-}
-h1{
-  font-family: fantasy;
-  color: black;
-  font-weight: bold;
-}
-a{
-  font-size: 25px;
-  font-family: fantasy;
-}
-.link{
-  text-align: center;
-}
-
-
-
-
-   </style> 
-   
-   <ul>
+<ul>
     <li>
       <a routerLink="/dashboard"><mat-icon>home</mat-icon>
-       Mary's Product List</a>
+       Product List</a>
     </li>
     
     <li style="float:right"><a class="active" routerLink="/Login">
@@ -131,13 +26,21 @@ a{
                 <span>Show Products</span>
             </button>
             
-           
+            <!-- <button mat-button class="menu-button" routerLink="">
+              <mat-icon>description</mat-icon>
+              <span>Generate Report</span>
+          </button> -->
     
             <button mat-button class="menu-button">
                 <mat-icon>help</mat-icon>
                 <span>Help</span>
             </button>
     
+            <button mat-button class="menu-button" routerLink="/report">
+              <mat-icon>description</mat-icon>
+              <span>Generate Report</span>
+          </button>
+
         </mat-sidenav>
    
     <mat-sidenav-content>
@@ -146,134 +49,102 @@ a{
   <br>
   
     
-   <form class="form"> 
+<!-- form -->
+<form class="form" (ngSubmit)="createProduct()"> 
+  
      <h1 >ADD Products</h1>
     <p class="link"> <a href="https://material.angular.io/" >click here</a> for Angular Material</p>
     
 
-
-<!-- Id -->
-        <p>Id</p>
-      <input id="Id" type="text" class="form-control" name="productId" [(ngModel)]="productId" required><br><br>
-      
-      <!-- <input 
-                formControlName="number"
-                id="Id" 
-                type="text" 
-                class="form-control" name="productId" [(ngModel)]="productId"> -->
-                
-            <!-- <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
-                <div *ngIf="f.number.errors.required">Number is required.</div>
-                <div *ngIf="f.number.errors.pattern">Enter only number.</div>
-            </div> -->
-
-           <!-- <p> Only Numbers Allowed</p><br>
-            <input type="text" (keypress)="keyPressNumbers($event)" /> -->
-     
-     
+<!-- Id -->  
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput [(ngModel)]="productId" name="productId">
+    </mat-form-field>
            
 <!-- Name -->
-        <p>Name</p>
-      <input id="Name" type="text" class="form-control" name="productName" [(ngModel)]="productName" required><br><br>
-
-
-
-
-
-<!-- Description   -->
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Description</mat-label>
-        <textarea matInput placeholder="about phone" name="productDesc" [(ngModel)]="productDesc" ></textarea>
-      </mat-form-field>
-    <!-- <input id="Desc" type="text" class="form-control" name="productDesc" [(ngModel)]="productDesc" required> -->
-  
-    
-
+       <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+      <input matInput  [(ngModel)]="productName" name="productName">
+    </mat-form-field>
      
-<!-- Price   -->
-      <label>Price </label>
-<mat-form-field class="select" [(ngModel)]="productPrice" name="productPrice">
+<!-- Price   -->   
+<mat-form-field class="select" appearance="fill">
   <mat-label>Set Price</mat-label>
-  <mat-select [(value)]="selected" [(ngModel)]="productPrice" name="productPrice">
-    <mat-option *ngFor="let prices of price"  [value]="prices.value" name="productPrice">
+  <mat-select [(value)]="selected" [(ngModel)]="productPrice" name="productPrice" required>
+    <mat-option *ngFor="let prices of price"  [value]="prices.value">
       {{prices.viewValue}}
     </mat-option>
   </mat-select>
 </mat-form-field>
-<!-- <p>price is : {{selected}}</p> -->
-      <!-- <input id="Price" type="text" class="form-control" name="productPrice" [(ngModel)]="productPrice" required> -->
 
+<!-- Multiple select -->
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Select Multiple</mat-label>
+      <mat-select [(ngModel)]="prod" multiple name="prod" >
+        <mat-option *ngFor="let prod of prodList"  [value]="prod">{{prod}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
+<!-- Description   -->
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Description</mat-label>
+  <textarea matInput placeholder="about phone" name="productDesc"  [(ngModel)]="productDesc" ></textarea>
+</mat-form-field>
 
-
-
-
-<!-- Multiple select       -->
-      <p>select multiple </p>
-      <ng-select class="select" [(ngModel)]="Productmul" name="Productmul"
-      [items]="cars"
-      bindLabel="name"
-      
-      appendTo="body"
-      [multiple]="true">
-    </ng-select>
-    
-
-
-
-<br>
-<!-- Type -->
-        <p>Type</p>
-        <mat-radio-group aria-label="Select an option" id="Type" name="productType" [(ngModel)]="productType">
-          <mat-radio-button value="1">Laptop</mat-radio-button>
-          <mat-radio-button value="2">Mobile</mat-radio-button>
-        </mat-radio-group>
-      <!-- <input id="Type" type="Text" class="form-control" name="productType" [(ngModel)]="productType" required> -->
-
-
-
-
-<!-- radio button-->
-      <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>-->
-
-<br><br>
+<!-- Date picker -->
+<mat-form-field appearance="fill" class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" [(ngModel)]="date" name="date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
 <!-- quantity-->
-      <p>Quantity</p>
-      <input id="Quantity" type="text" class="form-control" name="productQuantity" [(ngModel)]="productQuantity" required>
+     
+      <div class="stepper-input stepper__input">
+        <button class="toggle-less"><mat-icon (click)="minus()">remove</mat-icon></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-check-inline">
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Quantity</mat-label>
+              <input matInput name="productQuantity" [value]="quantity" [(ngModel)]="productQuantity">
+            </mat-form-field>
+           </div>
+
+         <button class="toggle-more" (click)="plus()"><mat-icon>add</mat-icon></button>
+      </div>
+   
+   <!-- Type -->
+   <label>Type: </label>
+   <mat-radio-group aria-label="Select an option" id="Type" name="productType" class="type" [(ngModel)]="productType" required>
+     <mat-radio-button value="1">Laptop</mat-radio-button>
+     <mat-radio-button value="2">Mobile</mat-radio-button>
+     <mat-radio-button value="2">Tablet</mat-radio-button>
+   </mat-radio-group>     
 
 
+
+
+
+    
 <br><br>
 
 <!-- check box-->
-      <section class="example-section" [formGroup]="toppings" name="checkbox" [(ngModel)]="checkbox">
-        <p>Select your toppings:</p>
-        <p><mat-checkbox formControlName="pepperoni">storage</mat-checkbox></p>
-        <p><mat-checkbox formControlName="extracheese">RAM</mat-checkbox></p>
-        <p><mat-checkbox formControlName="mushroom">camera</mat-checkbox></p>
-      </section>
+<section class="example-section" [formGroup]="toppings" name="checkbox" >
+  <p>Select your Options:</p>
+  <p><mat-checkbox formControlName="storage">storage</mat-checkbox></p>
+  <p><mat-checkbox formControlName="RAM">RAM</mat-checkbox></p>
+  <p><mat-checkbox formControlName="camera">camera</mat-checkbox></p>
+</section>
 <br>
-      
-      
-<!-- Date picker -->
-    <p>Simple datepicker</p>
-    <!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker> -->
-    <input matInput [matDatepicker]="myDatePicker">
-    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
-    <mat-datepicker #myDatePicker>  </mat-datepicker>
-
 
 <!-- Upload -->      
-<br><br>
-<input type="file" class="file-upload" onchange="console.log(event.target.files)" name="upload" [(ngModel)]="upload">
+<p>upload files</p>
+<input type="file" class="file-upload" onchange="console.log(event.target.files)" name="upload" >
      
   
 <br><br>
-<button mat-flat-button color="primary" (click)="createProduct()" >submit</button>
+<button mat-flat-button color="primary" (click)="createProduct()">submit</button>
    
     </form>
        
