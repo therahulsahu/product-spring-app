@@ -3,8 +3,10 @@ package com.product.service;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.product.model.Product;
@@ -12,10 +14,16 @@ import com.product.repository.ProductRepository;
 
 @Service
 @Qualifier("ProductService")
+@Slf4j
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
 	ProductRepository productRepository;
+
+	@Autowired
+	KafkaTemplate<String, Product> kafkaTemplate;
+
+	private static final String TOPIC = "product_topic";
 	
 	public List<Product> getProductList() {
 		List<Product> products = productRepository.findAll();
@@ -34,6 +42,8 @@ public class ProductServiceImpl implements ProductService {
 	public boolean createProducts(List<Product> productList) {
 		try {
 			productRepository.saveAll(productList);
+//			productList.forEach(product -> kafkaTemplate.send(TOPIC, product));
+			log.info("Published to topic : " + TOPIC);
 		}
 		catch (IllegalArgumentException e) {
 			// In case the given entities or any of the entities is null.
