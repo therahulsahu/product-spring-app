@@ -26,7 +26,7 @@ This repository contains a collection of Spring boot micro-services and a fronte
 
 ## How to Run:
 1. Start the couchbase db and make a bucket named `products`.
-2. Start the Frontend application (Product Portal) using `npm install` and then `ng serve --open` in root directory of the application. It will automatically open your default browser with `localhost:4000`.
+2. Start the Frontend application (Product Portal) using `npm install` and then `ng serve --open` in root directory of the application. It will automatically open your default browser with `localhost:4200`.
 3. Put your couchbase credentials in the `application.property/yml` file in the backend services.
 4. Start Product service using either command `mvn spring-boot:run` or using your favourite IDE. It will be running on `port 8080`.
 5. Start other services using the same above steps.
