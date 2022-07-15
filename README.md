@@ -20,6 +20,8 @@ This repository contains a collection of Spring boot micro-services and a fronte
 
 BPMN Service Task:
 Use Camunda Modeller to model the process. The process model composes of four service tasks:
+<img width="995" alt="Screenshot 2022-07-15 at 7 30 06 PM" src="https://user-images.githubusercontent.com/76160571/179254435-907ded9e-d0b8-4f9f-975a-6176f25a52e1.png">
+
 
 create product: Is a Service Task using Java Class as implementation and com.product.model.CreateProductDelegate as the Java Class.
 Get product: Is a Service Task using Delegate Expressions as implementation and value of ${getProduct}.
