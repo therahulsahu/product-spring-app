@@ -9,7 +9,7 @@ This repository contains a collection of Spring boot micro-services and a fronte
 |  3  | email-notification-service | ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)    | Backend service responsible for automatic email and sms notification after product creation.  |
 |  4  | report-generation-service  | ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)    | Backend service responsible for report generation of products. (PDF, Excel, CSV)              |
 
-## Requirements
+## Requirements (Prerequisite's)
 - Java 11
 - Node JS
 - Angular
@@ -18,43 +18,16 @@ This repository contains a collection of Spring boot micro-services and a fronte
 ## Flow
 <img width="729" alt="image" src="https://user-images.githubusercontent.com/55999865/178815246-ff5e4bcb-2de8-4b1b-90fa-0cdee0a53353.png">
 
-BPMN Service Task:
-Use Camunda Modeller to model the process. The process model composes of four service tasks:
-<img width="995" alt="Screenshot 2022-07-15 at 7 30 06 PM" src="https://user-images.githubusercontent.com/76160571/179254435-907ded9e-d0b8-4f9f-975a-6176f25a52e1.png">
+## Docs
+- [Grafana](https://github.com/therahulsahu/product-spring-app/blob/main/Docs/grafana-prometheus.md)
+- [ELK](https://github.com/therahulsahu/product-spring-app/blob/main/Docs/ELK.md)
+- [Camunda](https://github.com/therahulsahu/product-spring-app/blob/main/Docs/Camunda.md)
+- [APM-skywalking](https://github.com/therahulsahu/product-spring-app/blob/main/Docs/APM-skywalking.md)
 
-
-create product: Is a Service Task using Java Class as implementation and com.product.model.CreateProductDelegate as the Java Class.
-Get product: Is a Service Task using Delegate Expressions as implementation and value of ${getProduct}.
-Save data: Is a Service Task using Expression as implementation and value of ${camundaService.saveData(execution)}.
-Deliver data in Console: Is a Service Task using External as implementation and topic value of deliverDataInConsole.
-
-Compile & Run:
-
-1. Compile the application
-Use the following command to compile the Spring Boot application making use of maven:
-
-$ mvn clean install
-
-2. Run the application
-After you have successfully built the Camunda BPM Spring Boot application, the compiled artifact can be found in the target directory. Use the following command to start the Camunda BPM Spring Boot Application.
-
-$ mvn spring-boot:run
-
-3. Execute the example
-After the application has started, run the following command in another terminal:
-
-Run the command: Start Process Instance
-
-The following command instantiates a new instance of the create product process and pass the process variable called product with a value of null to the process engine as part of the request body.
-
-$ ./start_process.sh
-The script performs the following commands:
-
-curl --location --silent --output --request POST 'http://localhost:8080/api/productlist/v1/createproduct' --header 'Content-Type: application/json' --data-raw '{
-     "variables": {
-         "product": {
-             "value": "null",
-             "type": "String"
-        }
-    }
-}'
+## How to Run:
+1. Start the couchbase db and make a bucket named `products`.
+2. Start the Frontend application (Product Portal) using `npm install` and then `ng serve --open` in root directory of the application. It will automatically open your default browser with `localhost:4200`.
+3. Put your couchbase credentials in the `application.property/yml` file in the backend services.
+4. Start Product service using either command `mvn spring-boot:run` or using your favourite IDE. It will be running on `port 8080`.
+5. Start other services using the same above steps.
+6. Try to hit an endpoint `http://localhost:8080/api/productlist/v1/getlist` or use the Frontend UI to create, read, update and delete products.
