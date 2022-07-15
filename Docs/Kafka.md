@@ -16,7 +16,7 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
  ```
   > For windows run the `.bat` files instead of `.sh`.
 
-#### 3. Once both Zookeeper and Kafka server is started. Open a new terminal instance and run this command to create a topic called `product_topic`
+#### 3. Once both Zookeeper and Kafka server is started. Open a new terminal instance and run this command to create a topic named `product_topic`
 ```
 bin/kafka-topics.sh --create --topic product_topic --bootstrap-server localhost:9092
 ```
