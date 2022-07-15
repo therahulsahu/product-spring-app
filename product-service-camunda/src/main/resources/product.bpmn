@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1yxzmw2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:process id="product" name="product" isExecutable="true" camunda:versionTag="latest">
+    <bpmn:startEvent id="StartEvent_1" name="product service">
+      <bpmn:outgoing>Flow_11dmetq</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_11dmetq" sourceRef="StartEvent_1" targetRef="createproduct" />
+    <bpmn:serviceTask id="createproduct" name="create product" camunda:class="com.product.model.CreateProductDelegate">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_11dmetq</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tviw2j</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0tviw2j" sourceRef="createproduct" targetRef="getproduct" />
+    <bpmn:serviceTask id="getproduct" name="Get product" camunda:delegateExpression="${getProduct}">
+      <bpmn:incoming>Flow_0tviw2j</bpmn:incoming>
+      <bpmn:outgoing>Flow_1awt3vv</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1awt3vv" sourceRef="getproduct" targetRef="savedata" />
+    <bpmn:serviceTask id="savedata" name="Save data" camunda:expression="${camundaService.saveData(execution)}">
+      <bpmn:incoming>Flow_1awt3vv</bpmn:incoming>
+      <bpmn:outgoing>Flow_18c8wwz</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_18c8wwz" sourceRef="savedata" targetRef="deliver_data_in_couchbase" />
+    <bpmn:serviceTask id="deliver_data_in_couchbase" name="Deliver data in Couchbase" camunda:type="external" camunda:topic="deliverDataInCouchbase">
+      <bpmn:incoming>Flow_18c8wwz</bpmn:incoming>
+      <bpmn:outgoing>Flow_1tqncqy</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0u871np" name="service completed">
+      <bpmn:incoming>Flow_1tqncqy</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1tqncqy" sourceRef="deliver_data_in_couchbase" targetRef="Event_0u871np" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="product">
+      <bpmndi:BPMNEdge id="Flow_0tviw2j_di" bpmnElement="Flow_0tviw2j">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="430" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11dmetq_di" bpmnElement="Flow_11dmetq">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1awt3vv_di" bpmnElement="Flow_1awt3vv">
+        <di:waypoint x="530" y="117" />
+        <di:waypoint x="590" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18c8wwz_di" bpmnElement="Flow_18c8wwz">
+        <di:waypoint x="690" y="117" />
+        <di:waypoint x="750" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tqncqy_di" bpmnElement="Flow_1tqncqy">
+        <di:waypoint x="850" y="117" />
+        <di:waypoint x="912" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="160" y="142" width="75" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1v2r635_di" bpmnElement="createproduct">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_037aaos_di" bpmnElement="getproduct">
+        <dc:Bounds x="430" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0t88pke_di" bpmnElement="savedata">
+        <dc:Bounds x="590" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1yvm8hj_di" bpmnElement="deliver_data_in_couchbase">
+        <dc:Bounds x="750" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0u871np_di" bpmnElement="Event_0u871np">
+        <dc:Bounds x="912" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="886" y="142" width="89" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

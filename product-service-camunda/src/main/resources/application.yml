@@ -1,0 +1,21 @@
+spring:
+  couchbase:
+    connection-string: "127.0.0.1"
+    user-name: "Administrator"
+    password: "Couchbase"
+    bucket-name: "product"
+spring.datasource.url: jdbc:h2:file:./camunda-h2-database
+
+multipart:
+  enabled: true
+  #location: roy-upload-tmp
+  max-file-size: 100MB
+  max-request-size: 100MB
+  
+camunda.bpm.admin-user:
+  id: camunda
+  password: camunda1
+# 
+#  first-name: Demo
+#  filter:
+#  create: All tasks
