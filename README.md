@@ -30,6 +30,6 @@ This repository contains a collection of Spring boot micro-services and a fronte
 3. Put your couchbase credentials in the `application.property/yml` file in the backend services.
 4. Start Product service using either command `mvn spring-boot:run` or using your favourite IDE. It will be running on `port 8080`.
 5. Start other services using the same above steps.
-6. Try to hit an endpoint `http://localhost:8080/api/productlist/v1/getlist` or use the Frontend Application.
+6. Try to hit an endpoint `http://localhost:8080/api/productlist/v1/getlist` or use the Frontend UI to create, read, update and delete products.
 
 
