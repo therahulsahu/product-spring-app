@@ -15,6 +15,7 @@ import com.product.client.EmailNotificationClient;
 import com.product.client.ReportGenerationClient;
 import com.product.config.ProductExcelExporter;
 import com.product.model.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api/productlist/v1")
+@Slf4j
 public class ProductController {
 
 	private static final String UPLOADED_FOLDER = "/Users/rahul.b.sahu/dev/demo-project/product-service/uploads";
@@ -42,13 +44,13 @@ public class ProductController {
 
 	@GetMapping("/getlist")
 	public List<Product> getlist() {
-		System.out.println("Get list called");
+		log.info("Get list called");
 		return productService.getProductList();
 	}
 
 	@PostMapping("/createproduct")
 	public Map<String, String> createProduct(@RequestBody List<Product> productRequest) {
-		System.out.println(">>>>>productRequest--->>>>" + productRequest);
+		log.info(">>>>>productRequest--->>>>" + productRequest);
 		HashMap<String, String> map = new HashMap<>();
 		boolean res = productService.createProducts(productRequest);
 		if(res) {
@@ -60,12 +62,12 @@ public class ProductController {
 			Smsrequest sms = new Smsrequest("+917000571622", "Hello, A new Product has been created");
 			try{
 				emailNotificationClient.sendMail(emailDetails);
-				System.out.println("email sent");
+				log.info("email sent");
 				emailNotificationClient.sendMessage(sms);
-				System.out.println("message sent");
+				log.info("message sent");
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				System.out.println("Email Notification service might be down !");
+				log.error(e.getMessage());
+				log.error("Email Notification service might be down !");
 			}
 		} else {
 			map.put("response", "Products not created");
@@ -75,8 +77,8 @@ public class ProductController {
 	
 	@PostMapping("/deleteproduct")
 	public ProductResponse deleteproduct(@RequestBody List<Product> productRequest) {
-		System.out.println("Start 2>>>>>In newlistController::deleteproduct()>>>>>>>>>>>>");
-		System.out.println("Before Size of product List" + productService.getProductsCount());
+		log.info("Start 2>>>>>In newlistController::deleteproduct()>>>>>>>>>>>>");
+		log.info("Before Size of product List" + productService.getProductsCount());
 		ProductResponse response = new ProductResponse();
 		
 		boolean res = productService.deleteProducts(productRequest);
@@ -144,15 +146,15 @@ public class ProductController {
 	
 	@PostMapping("/login")
 	public UserBean login(@RequestBody UserBean userBean) {
-		System.out.println("Start 2 In HelloWorldController::login()>>>>>>>>>>>>");
+		log.info("Start 2 In HelloWorldController::login()>>>>>>>>>>>>");
 		
 		if ((userBean.getUserName().equals("abc") && userBean.getUserPassword().equals("abc"))) {
-			System.out.println("User is login succesful ");
+			log.info("User is login succesful ");
 			userBean.setErrorCode("200");
 			// navigate to welcome screen where it shows product page with links or tabs
 			return userBean;
 		} else {
-			System.out.println("User is login faild due to invalid credientials ");
+			log.error("User is login faild due to invalid credientials ");
 			userBean.setErrorCode("400");
 			// show same login page
 			return userBean;
