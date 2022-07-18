@@ -3,6 +3,15 @@ Apache Kafka is a distributed event store and stream-processing platform. In thi
 
 Download kafka from this link : https://kafka.apache.org/downloads
 
+& Add this Dependency in pom.xml
+
+```xml
+<dependency>
+ <groupId>org.springframework.kafka</groupId>
+ <artifactId>spring-kafka</artifactId>
+</dependency>
+```
+
 ## Steps: 
 #### 1. Extract kafka into a directory.
 #### 2. Open terminal into that directory and run 
