@@ -1,12 +1,10 @@
 package com.product.service;
 
 import java.util.List;
-import java.util.Optional;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.product.model.Product;
@@ -14,16 +12,10 @@ import com.product.repository.ProductRepository;
 
 @Service
 @Qualifier("ProductService")
-@Slf4j
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
 	ProductRepository productRepository;
-
-	@Autowired
-	KafkaTemplate<String, Product> kafkaTemplate;
-
-	private static final String TOPIC = "product_topic";
 	
 	public List<Product> getProductList() {
 		List<Product> products = productRepository.findAll();
@@ -42,8 +34,6 @@ public class ProductServiceImpl implements ProductService {
 	public boolean createProducts(List<Product> productList) {
 		try {
 			productRepository.saveAll(productList);
-//			productList.forEach(product -> kafkaTemplate.send(TOPIC, product));
-			log.info("Published to topic : " + TOPIC);
 		}
 		catch (IllegalArgumentException e) {
 			// In case the given entities or any of the entities is null.
@@ -62,40 +52,6 @@ public class ProductServiceImpl implements ProductService {
 			return false;
 		}
 		return true;
-	}
-
-	public boolean updateProduct(Product updatedProduct) {
-		Optional<Product> optionalProduct = productRepository.findById(updatedProduct.getProductId());
-		if(optionalProduct.isEmpty()) {
-			System.out.println("No product found with id : " + updatedProduct.getProductId());
-			return false;
-		}
-
-		Product currentProduct = optionalProduct.get();
-		copyProductProperties(currentProduct, updatedProduct);
-		productRepository.save(currentProduct);
-		return true;
-	}
-
-	private void copyProductProperties(Product productA, Product productB) {
-		if(productB.getProductName() != null) {
-			productA.setProductName(productB.getProductName());
-		}
-		if(productB.getProductPrice() != null) {
-			productA.setProductPrice(productB.getProductPrice());
-		}
-		if(productB.getProductDesc() != null) {
-			productA.setProductDesc(productB.getProductDesc());
-		}
-		if(productB.getProductQuantity() != null) {
-			productA.setProductQuantity(productB.getProductQuantity());
-		}
-		if(productB.getProductType() != null) {
-			productA.setProductType(productB.getProductType());
-		}
-		if(productB.getProductmul() != null) {
-			productA.setProductmul(productB.getProductmul());
-		}
 	}
 	
 	public long getProductsCount() {
