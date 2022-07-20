@@ -2,13 +2,15 @@ package com.product.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.*;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.product.model.Product;
 import com.product.repository.ProductRepository;
 
@@ -36,6 +38,12 @@ public class ProductServiceImpl implements ProductService {
 			products.add(product2);
 			products.add(product3);
 		}
+		try {
+			log.info("Getting product {}",new ObjectMapper().writeValueAsString(products));
+		} catch (JsonProcessingException e) {
+			log.error("error while getting product {}",e);
+			e.printStackTrace();
+		}
 		return products;
 	}
 	
@@ -44,10 +52,16 @@ public class ProductServiceImpl implements ProductService {
 			productRepository.saveAll(productList);
 //			productList.forEach(product -> kafkaTemplate.send(TOPIC, product));
 			log.info("Published to topic : " + TOPIC);
+			log.info("Adding product {}",new ObjectMapper().writeValueAsString(productList));
 		}
 		catch (IllegalArgumentException e) {
 			// In case the given entities or any of the entities is null.
+			log.error("error while adding product {}",e);
 			return false;
+		}
+		catch (JsonProcessingException e) {
+			log.error("error while adding product  {}",e);
+			e.printStackTrace();
 		}
 		return true;
 	}
@@ -55,10 +69,12 @@ public class ProductServiceImpl implements ProductService {
 	public boolean deleteProducts(List<Product> productList) {
 		try {
 			productRepository.deleteAll(productList);
+			log.info("Deleting product {}",new ObjectMapper().writeValueAsString(productList));
 		}
 		catch (Exception e) {
 			// In case the given entities or any of the entities is null.
 			// or the given id is not found
+			log.error("Product could not be deleted : {}",e);
 			return false;
 		}
 		return true;
@@ -74,6 +90,12 @@ public class ProductServiceImpl implements ProductService {
 		Product currentProduct = optionalProduct.get();
 		copyProductProperties(currentProduct, updatedProduct);
 		productRepository.save(currentProduct);
+		try {
+			log.info("Adding product {}",new ObjectMapper().writeValueAsString(Collections.singletonList(updatedProduct)));
+		} catch (JsonProcessingException e) {
+			log.error("Product could not be updated : {}",e);
+			e.printStackTrace();
+		}
 		return true;
 	}
 
@@ -99,6 +121,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	public long getProductsCount() {
+		log.info("Product count {}",productRepository.count());
 		return productRepository.count();
 	}
 }

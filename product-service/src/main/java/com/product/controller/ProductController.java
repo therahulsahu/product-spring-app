@@ -107,7 +107,7 @@ public class ProductController {
 		List<Product> listProducts = productService.getProductList();
 
 		ProductExcelExporter excelExporter = new ProductExcelExporter(listProducts);
-
+		log.info("excel file generated");
 		excelExporter.export(response);
 
 	}
@@ -130,6 +130,7 @@ public class ProductController {
 	public String singleFileUpload(@RequestParam("file") MultipartFile file) {
 
 		if (file.isEmpty()) {
+			log.error("no file selected");
 			return "no file selected";
 		}
 		try {
@@ -141,6 +142,7 @@ public class ProductController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		log.info("uploaded successfully");
 		return "uploaded successfully";
 	}
 	

@@ -5,6 +5,8 @@ import com.reportgenerationservice.excelConfig.ProductExcelExporter;
 import com.reportgenerationservice.service.ReportService;
 import com.reportgenerationservice.repository.ProductRepository;
 import com.sun.net.httpserver.Authenticator;
+
+import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -31,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("api/report/v1")
 public class ReportController {
@@ -59,7 +62,7 @@ public class ReportController {
         } catch (MalformedURLException e) {
             throw new RuntimeException("Error: " + e.getMessage());
         }
-
+        log.info("pdf file generated");
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_TYPE, Files.probeContentType(file.toPath()))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
@@ -109,7 +112,7 @@ public class ReportController {
             csvWriter.write(products, nameMapping);
         }
         csvWriter.close();
-
+        log.info("csv file generated");
         return new ResponseEntity<Authenticator.Success>(HttpStatus.OK);
     }
 

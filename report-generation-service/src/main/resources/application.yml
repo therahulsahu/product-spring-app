@@ -4,3 +4,6 @@ spring:
     user-name: "mdep"
     password: "rakuten"
     bucket-name: "product"
+logging:
+  file: 
+    name: /Users/harshith.sr/Downloads/logs/elk-stack.log 
