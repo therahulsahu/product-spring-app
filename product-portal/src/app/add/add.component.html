@@ -1,7 +1,7 @@
 <ul>
     <li>
       <a routerLink="/dashboard"><mat-icon>home</mat-icon>
-       Product List</a>
+       Product Catalog</a>
     </li>
     
     <li style="float:right"><a class="active" routerLink="/Login">
@@ -26,11 +26,6 @@
                 <span>Show Products</span>
             </button>
             
-            <!-- <button mat-button class="menu-button" routerLink="">
-              <mat-icon>description</mat-icon>
-              <span>Generate Report</span>
-          </button> -->
-    
             <button mat-button class="menu-button">
                 <mat-icon>help</mat-icon>
                 <span>Help</span>
@@ -113,20 +108,15 @@
 
          <button class="toggle-more" (click)="plus()"><mat-icon>add</mat-icon></button>
       </div>
-   
+   <br>
    <!-- Type -->
    <label>Type: </label>
    <mat-radio-group aria-label="Select an option" id="Type" name="productType" class="type" [(ngModel)]="productType" required>
      <mat-radio-button value="1">Laptop</mat-radio-button>
      <mat-radio-button value="2">Mobile</mat-radio-button>
-     <mat-radio-button value="2">Tablet</mat-radio-button>
+     <mat-radio-button value="3">Tablet</mat-radio-button>
    </mat-radio-group>     
-
-
-
-
-
-    
+ 
 <br><br>
 
 <!-- check box-->
@@ -144,8 +134,9 @@
      
   
 <br><br>
+<div [align]="'end'">
 <button mat-flat-button color="primary" (click)="createProduct()">submit</button>
-   
+</div>
     </form>
        
     </mat-sidenav-content>

@@ -81,7 +81,7 @@ masterToggle() {
       width: '30%',
       data: row
     }).afterClosed().subscribe(data => {
-      if(data ==='save'){
+      if(data ==='update'){
       console.log("success");
       this.getProductList()}
     });

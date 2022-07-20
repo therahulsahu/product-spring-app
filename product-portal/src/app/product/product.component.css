@@ -129,8 +129,8 @@ a{
   opacity: 0.9;
   border: none;
   font-size: 1.5em;
-  /* margin: 34px 2px; */
-  margin-left: 15%;
+  margin: 34px 2px;
+  /* margin-left: 10%; */
   }
 .del:hover {
   opacity:1;
@@ -144,7 +144,7 @@ a{
   opacity: 0.9;
 
   margin-right: 30px;
-  margin-top: 30px;
+  margin-top: 0px;
  
  
   
@@ -204,38 +204,29 @@ a{
   color: black;
 } */
 
-ul{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
- 
-  /* padding: 30px 10%; */
-}
-.nav_links{
-  list-style: none;
-}
-.nav_links li{
-  display: inline;
-  padding: 0px 20px;
-}
-
-.nav_links li a{
-  transition: all 0.3s ease 0s;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ebebeb;
+  }
+  
+  li {
+  float: left;
+  }
+  
+  li a {
+  display: block;
   color: black;
-}
-.nav_links li a:hover{
-  color: palevioletred;
-}
-.logout{
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
-  color: black;
-}
-.nav_links li a{
-  transition: all 0.3s ease 0s;
-}
-.logout li a:hover{
-  color: palevioletred;
-}
+  }
+  
+  .active {
+  background-color: palevioletred;
+  }
 .report{
   font-family: fantasy;
   color: black;

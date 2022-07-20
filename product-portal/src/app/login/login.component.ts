@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 @Component({ 
     selector: 'app-login',
     templateUrl: 'login.component.html' ,
+    styleUrls: ['./login.component.css']
   
 })
 export class LoginComponent implements OnInit{
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit{
     userName:  any;
     userPassword: any;
     invalidCredentials: boolean =  false;
-    
+    ProductForm ! : FormGroup;
 
   constructor(
 
@@ -44,6 +45,10 @@ export class LoginComponent implements OnInit{
           }
           else{
             this.invalidCredentials = true;
+            alert("Invalid Credentials");
+            this.ProductForm.reset();
+           
+            this.handleLogin();
           }  
         
            

@@ -1,36 +1,27 @@
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ebebeb;
   }
   
   li {
-    float: left;
+  float: left;
   }
   
   li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
   }
-  
   
   .active {
-    background-color: #006994;
+  background-color: palevioletred;
   }
-  h1{
-      font-size: 70px;
-      text-decoration: wavy;
-      font-family: cursive;
-      text-align: center;
-      color: plum;
-  }
-  
 h1{
     font-family: fantasy;
     color: black;
@@ -40,16 +31,11 @@ h1{
     font-size: 25px;
     font-family: fantasy;
   }
-
-
-
-
-
 .mat-sidenav {
     /* margin: 16px;
     width: 200px; */
     border-right: none;
-    background: #006994;
+    background: palevioletred;
     color: white;
     /* border-radius: 10px; */
     padding: 10px;
@@ -90,6 +76,6 @@ mat-icon {
   width: 1436px;
   height: 727px;
   margin: 2px;
-  border: 1px solid #555;
+  
 }
 

@@ -137,7 +137,7 @@ createProduct(){
 }
 updateProduct(){
   this.productService.updateProduct(this.ProductForm.value, this.editData.productId).subscribe(data =>{
-    alert("updated successfully");
+   
     this.ProductForm.reset();
     this.dialogRef.close('update');
   

@@ -1,0 +1,91 @@
+.text{
+    text-align: center;
+    font-size: 50px;
+    font-style: italic;
+}
+.form{
+    width: 320px;
+    height: 350px;
+    background: rgb(0, 0, 0, 0.3);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 30px 30px;
+ }
+
+.form input[type="text"], [type="password"]{
+border: none;
+
+outline: none;
+height: 30px;
+width: 250px;
+}
+
+.form label{
+margin: 0;
+padding: 0;
+font-weight: bold;
+text-align: left;
+}
+
+.button
+{
+border: none;
+outline: none;
+height: 40px;
+background: #1c8adb;
+color: #fff;
+font-size: 20px;
+border-radius: 10px;
+width: 100px;
+}
+.button:hover{
+cursor: pointer;
+color: #000;
+}
+p{
+text-align: left;
+}
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+li a:hover {
+background-color: #111;
+}
+.active {
+background-color: palevioletred;
+}
+h2{
+text-align: center;
+font-family: Quintessential;
+color: black;
+}
+h1{
+text-align: center;
+font-family: fantasy;
+font-size: 50px;
+
+}
+marquee{
+font-family: Georgia, 'Times New Roman', Times, serif;
+}

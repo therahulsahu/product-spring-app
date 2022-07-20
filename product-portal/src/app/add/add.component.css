@@ -4,10 +4,10 @@
 /* form */
 .form{
     width: 400px;
-    height: 1060px;
-    background: rgb(0, 0, 0, 0.3);
-    color: #fff;
-    top: 80%;
+    height: 960px;
+    background: rgb(0, 0, 0, 0.1);
+    color: black;
+    top: 75%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -67,12 +67,12 @@ width: 250px;
 }
 
 mat-sidenav {
-    margin: 16px;
+    margin: 5px;
     width: 200px;
     border-right: none;
-    background: #006994;
+    background: palevioletred;
     color: white;
-    border-radius: 10px;
+    border-radius: 0px;
     padding: 16px;
     text-align: center;
 }
@@ -134,10 +134,7 @@ mat-checkbox{
   .example-full-width {
     width: 100%;
   }
- 
-
-
-    
+   
   .text{
       text-align: center;
       font-size: 50px;
@@ -150,7 +147,7 @@ mat-checkbox{
 border: none;
 outline: none;
 height: 40px;
-background: #1c8adb;
+background: palevioletred;
 color: #fff;
 font-size: 20px;
 border-radius: 10px;
@@ -171,7 +168,7 @@ list-style-type: none;
 margin: 0;
 padding: 0;
 overflow: hidden;
-background-color: #333;
+background-color: #ebebeb;
 }
 
 li {
@@ -180,14 +177,14 @@ float: left;
 
 li a {
 display: block;
-color: white;
+color: black;
 text-align: center;
-padding: 10px 16px;
+padding: 14px 16px;
 text-decoration: none;
 }
 
 .active {
-background-color: #006994;
+background-color: palevioletred;
 }
 h1{
 font-family: fantasy;
@@ -218,12 +215,9 @@ display: flex;
 align-items: center;
 
 }
-
-
-
 .stepper__input button {
 cursor: pointer;
-background-color: #16489d;
+background-color: palevioletred;
 min-width: 34px;
 height: 25px;
 line-height: 25px;
