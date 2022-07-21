@@ -22,22 +22,25 @@ export class ReportComponent implements OnInit {
   selectedGroup: any;
   getVal() {
     console.log(this.selectedGroup); // returns selected object
-    if(this.selectedGroup===1){
+    if(this.selectedGroup==="1"){
       this.productService.getValByPDF().subscribe((response: any) => {
         const blob = new Blob([response], { type: 'string' });
         const url= window.URL.createObjectURL(blob);     
         const link = document.createElement('a');
+        console.log(link);
         document.body.appendChild(link);
         link.href = url;
         link.download="report.pdf";
         link.click(); 
       });
     } 
-    else if(this.selectedGroup===2){
+     else if(this.selectedGroup==="2"){
       this.productService.getValByExcel().subscribe((response: any) => {
         const blob = new Blob([response], { type: 'string' });
         const url= window.URL.createObjectURL(blob);     
         const link = document.createElement('a');
+        console.log(link);
+        console.log(url);
         document.body.appendChild(link);
         link.href = url;
         link.download="report.xlsx";

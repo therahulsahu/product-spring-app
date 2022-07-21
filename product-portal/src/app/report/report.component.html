@@ -11,26 +11,21 @@
    <button class="logout" routerLink="/home">
     <mat-icon aria-hidden="false" aria-label="Example Logout icon">logout</mat-icon>Logout</button>
   </ul> -->
-  
-  
-  
-  
-  
+
+
+
+
+
   <ul>
+    <li>
+      <a routerLink="/dashboard"><mat-icon>home</mat-icon>
+       Product Catalog</a>
+    </li>
     
-     
-            
-    <nav>
-    <ul class="nav_links">
-        <li class="nav_links"> <a routerLink="/dashboard"><mat-icon>home</mat-icon>Home</a></li>
-        <li class="nav_links"><a routerLink="/add" ><mat-icon>add</mat-icon>Add Items</a></li>
-        <li class="nav_links"><a routerLink="/product" ><mat-icon>list</mat-icon>List</a></li>
-     </ul>
-    </nav>
-    <button class="log" routerLink="/Login">
-        <mat-icon aria-hidden="false" aria-label="Example Logout icon">logout</mat-icon>Logout</button>
+    <li style="float:right" ><a style="color:white" class="active" routerLink="/Login">
+      <mat-icon aria-hidden="false" aria-label="Example Logout icon" >logout</mat-icon>Logout</a></li>
   
-    
+  
   </ul>
 
 <!-- 
@@ -54,8 +49,8 @@
             <mat-icon>description</mat-icon>
             <span>Generate Report</span>
         </button> -->
-       
-        <!-- <button mat-button class="menu-button">
+
+<!-- <button mat-button class="menu-button">
             <mat-icon>help</mat-icon>
             <span>Help</span>
         </button>
@@ -101,7 +96,7 @@
   <div class="list">
     
     <!-- main content container -->
-    <!-- <div class="jumbotron">
+<!-- <div class="jumbotron">
       <div class="container">
           <div class="row">
               <div class="col-sm-8 offset-sm-2">
@@ -111,52 +106,48 @@
       </div>
     </div>
     </div> -->
+
+<mat-sidenav-container>
+  <mat-sidenav class="mat-elevation-z8" mode="side" opened>
     
-    <mat-sidenav-container>
-        <mat-sidenav  class="mat-elevation-z8" mode="side" opened>
-            <button mat-button class="lite" >  
-                <mat-icon>home</mat-icon>
-                <span>Home</span>
-            </button>
-          
-                <button mat-button class="menu-button" routerLink="/dashboard" >  
-                    <mat-icon>home</mat-icon>
-                    <span>Home</span>
-                </button>
-                <button mat-button class="menu-button"  routerLink="/add">
-                    <mat-icon>add</mat-icon>
-                    <span>Add Products</span>
-                </button>
-                
-                <button mat-button class="menu-button" routerLink="/product">
-                    <mat-icon>list</mat-icon>
-                    <span>Show Products</span>
-                </button>
-                
-                <!-- <button mat-button class="menu-button" routerLink="">
+    <button mat-button class="menu-button" routerLink="/dashboard">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/add">
+      <mat-icon>add</mat-icon>
+      <span>Add Products</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/product">
+      <mat-icon>list</mat-icon>
+      <span>Show Products</span>
+    </button>
+
+    <!-- <button mat-button class="menu-button" routerLink="">
                   <mat-icon>description</mat-icon>
                   <span>Generate Report</span>
               </button> -->
-        
-                <button mat-button class="menu-button">
-                    <mat-icon>help</mat-icon>
-                    <span>Help</span>
-                </button>
-        
-                <button mat-button class="menu-button" routerLink="/report">
-                  <mat-icon>description</mat-icon>
-                  <span>Generate Report</span>
-              </button>
-              
-            </mat-sidenav>
-       
-       
-            <br>
-          
-                <h1>please download your file from here</h1>
-   
-                <br>
-    <!-- <mat-form-field class="drop" appearance="fill">
+
+    <button mat-button class="menu-button">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/report">
+      <mat-icon>description</mat-icon>
+      <span>Generate Report</span>
+    </button>
+
+  </mat-sidenav>
+
+
+  <br>
+
+  <h1>please download your file from here</h1>
+
+  <br>
+  <!-- <mat-form-field class="drop" appearance="fill">
       <mat-label>export to</mat-label>
       <select matNativeControl >
         <option><a href="#" (click)="downloadFile('sample.pdf')">Download PDF</a></option>
@@ -171,25 +162,24 @@
         Download
     </button> -->
 
-    <mat-form-field class="drop" appearance="fill">
-        <mat-label>export to</mat-label>
-        <select matNativeControl [(ngModel)]="selectedGroup" required>
-          
-          <option *ngFor="let group of groups" value="{{group.id}}">{{group.name}}</option>
-          
-        </select>
-      </mat-form-field>
-      
-    
-      <br>
-      <input class="d" type="button" (click)="getVal()" value="Download">
-         
-            
+  <mat-form-field class="drop" appearance="fill">
+    <mat-label>export to</mat-label>
+    <select matNativeControl [(ngModel)]="selectedGroup" required>
 
-    <!-- <div>
+      <option *ngFor="let group of groups" value="{{group.id}}">{{group.name}}</option>
+
+    </select>
+  </mat-form-field>
+
+
+  <br>
+  <input class="d" type="button" (click)="getVal()" value="Download">
+
+
+
+  <!-- <div>
         <select>
             <option *ngFor="let group of groups" value="{{group.id}}">{{group.name}}</option>
         </select>
     </div>
     <input type="button" (click)="getVal()" value="submit"/> -->
-    

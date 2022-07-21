@@ -1,50 +1,27 @@
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ebebeb;
-  
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ebebeb;
   }
   
-  /* li {
-    float: left;
-  }
-   */
-  /* li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  } */
- 
-  .nav_links{
-    list-style: none;
-  }
-  .nav_links li{
-    display: inline;
-    padding: 0px 20px;
+  li {
+  float: left;
   }
   
-  .nav_links li a{
-    transition: all 0.3s ease 0s;
-    color: black;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  .nav_links li a:hover{
-    color: palevioletred;
+  li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
   }
   
-  .nav_links li a{
-    transition: all 0.3s ease 0s;
+  .active {
+  background-color: rgb(242, 98, 122);
+  color: white;
   }
   .log{
     text-decoration: none;
@@ -53,7 +30,7 @@ ul {
     border: none;
   }
   .log:hover{
-    color: palevioletred;
+    color: rgb(242, 98, 122);
   }
   .menu{
     font-family: fantasy;
@@ -61,7 +38,7 @@ ul {
     font-size: x-large;
   }
   .menu:hover{
-    color: palevioletred;
+    color: rgb(242, 98, 122);
   }
    
   
@@ -99,7 +76,7 @@ ul {
     /* margin: 16px;
     width: 200px; */
     border-right: none;
-    background: palevioletred;
+    background: rgb(242, 98, 122);
     color: white;
     border-radius: 10px;
     padding: 10px;
@@ -148,7 +125,7 @@ mat-icon {
 }
 .d{
     margin-left: 540px;
-    background-color: palevioletred;
+    background-color: rgb(242, 98, 122);
     border: none;
     color: white;
     padding: 15px 32px;

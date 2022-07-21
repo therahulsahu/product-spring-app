@@ -1,8 +1,6 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
-
-
 /* form */
-.form{
+.form {
     width: 400px;
     height: 960px;
     background: rgb(0, 0, 0, 0.1);
@@ -14,40 +12,33 @@
     box-sizing: border-box;
     padding: 30px 30px;
 }
-
-.form input[type="text"]{
-border: none;
-border: 1px solid #ccc;
-outline: none;
-height: 30px;
-width: 350px;
+.form input[type="text"] {
+    border: none;
+    border: 1px solid #ccc;
+    outline: none;
+    height: 30px;
+    width: 350px;
 }
-
-.form label{
+.form label {
     margin: 0;
     padding: 0;
     font-weight: bold;
     text-align: left;
 }
-
 /* select multiple */
-.mul{
-border: none;
-color: #fff;
-outline: none;
-height: 30px;
-width: 250px;
-
+.mul {
+    border: none;
+    color: #fff;
+    outline: none;
+    height: 30px;
+    width: 250px;
 }
-
-
-.btn{
+.btn {
     text-align: center;
-   margin: 70px auto 0;
-   font-family: Book Antiqua;
-    }
-
-.btn a{
+    margin: 70px auto 0;
+    font-family: Book Antiqua;
+}
+.btn a {
     width: 150px;
     text-decoration: none;
     display: inline-block;
@@ -55,15 +46,13 @@ width: 250px;
     padding: 12px 0;
     border: .5px solid black;
     position: relative;
-
 }
-.btn a span{
+.btn a span {
     width: 0;
     height: 100%;
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
-
 }
 
 mat-sidenav {
@@ -76,153 +65,130 @@ mat-sidenav {
     padding: 16px;
     text-align: center;
 }
-
 .content {
     height: calc(100vh - 100px);
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 2rem;
     color: lightgray;
 }
-
 mat-sidenav-container {
     height: calc(100vh - 65px);
 }
-
 .menu-button {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     font-size: 1rem;
-
-    
 }
 mat-icon {
     margin-right: 8px;
 }
-ng-select{
+ng-select {
     width: 100%;
     padding: 7px 20px;
     margin: 8px 0;
-   
     background-color: white;
     border-radius: 2px;
     box-sizing: border-box;
     color: #000;
 }
-mat-checkbox{
+mat-checkbox {
     font-family: fantasy;
     color: #000;
 }
-
-.mat-radio-button ~ .mat-radio-button {
+.mat-radio-button~.mat-radio-button {
     margin-left: 16px;
-  }
-  .example-form {
+}
+.example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
-  }
-  
-  .example-full-width {
+}
+.example-full-width {
     width: 100%;
-  }
-   
-  .text{
-      text-align: center;
-      font-size: 50px;
-      font-style: italic;
-  }
-  
-
-.button
-{
-border: none;
-outline: none;
-height: 40px;
-background: palevioletred;
-color: #fff;
-font-size: 20px;
-border-radius: 10px;
-width: 100px;
 }
-.button:hover{
-cursor: pointer;
-color: #000;
+.text {
+    text-align: center;
+    font-size: 50px;
+    font-style: italic;
 }
-p, label{
-text-align:left;
-font-family: Abril Fatface;
-font-size: 20px;
-
+.button {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: palevioletred;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100px;
+}
+.button:hover {
+    cursor: pointer;
+    color: #000;
+}
+p, label {
+    text-align: left;
+    font-family: Abril Fatface;
+    font-size: 20px;
 }
 ul {
-list-style-type: none;
-margin: 0;
-padding: 0;
-overflow: hidden;
-background-color: #ebebeb;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ebebeb;
 }
-
 li {
-float: left;
+    float: left;
 }
-
 li a {
-display: block;
-color: black;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
-
 .active {
-background-color: palevioletred;
+    background-color: rgb(242, 98, 122);
 }
-h1{
-font-family: fantasy;
-color: black;
-font-weight: bold;
+h1 {
+    font-family: fantasy;
+    color: black;
+    font-weight: bold;
 }
-a{
-font-size: 25px;
-font-family: fantasy;
+a {
+    font-size: 25px;
+    font-family: fantasy;
 }
-.link{
-text-align: center;
+.link {
+    text-align: center;
 }
-
 .example-full-width {
-width: 100%;
+    width: 100%;
 }
-.select{
-width: 100%;
+.select {
+    width: 100%;
 }
-.qn{
-width: 100%;
+.qn {
+    width: 100%;
 }
-
 .stepper__input {
-
-display: flex;
-align-items: center;
-
+    display: flex;
+    align-items: center;
 }
 .stepper__input button {
-cursor: pointer;
-background-color: palevioletred;
-min-width: 34px;
-height: 25px;
-line-height: 25px;
-color: #fff;
-user-select: none;
-border: none;
-
+    cursor: pointer;
+    background-color: rgb(242, 98, 122);
+    min-width: 34px;
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    user-select: none;
+    border: none;
 }
