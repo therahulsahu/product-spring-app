@@ -7,15 +7,15 @@
 <div class="header">
 <h1>PRODUCT CATALOG</h1>
 </div>
-<form (ngSubmit)="handleLogin()" novalidate class="form" [formGroup]="ProductForm">
+<form (ngSubmit)="handleLogin()" novalidate class="form">
     <h2>LOGIN</h2>
     <div>
         <p>UserName</p>
             <input type="text"  id="userName" [(ngModel)]="userName" name="userName" matInput required minlength="2" #userNameValidation="ngModel">
     
-        <!-- <mat-error *ngIf="userNameValidation.errors?.['required']">
+        <mat-error *ngIf="userNameValidation.errors?.['required']">
             UserName is required 
-        </mat-error> -->
+        </mat-error>
         <mat-error *ngIf="userNameValidation.errors?.['minlength']">
             min length is 2
         </mat-error>
@@ -23,9 +23,9 @@
 <div>
         <p>password</p>
         <input type="password" matInput  [(ngModel)]="userPassword" name="userPassword" required minlength="3" #passwordValidation="ngModel">
-        <!-- <mat-error *ngIf="passwordValidation.errors?.['required']">
+        <mat-error *ngIf="passwordValidation.errors?.['required']">
             Password is required
-        </mat-error> -->
+        </mat-error>
         <mat-error *ngIf="passwordValidation.errors?.['minlength']">
             min length is 3
         </mat-error>
@@ -38,4 +38,3 @@
 <br>
 <button mat-flat-button color="primary">Login</button>
 </form>
- 
