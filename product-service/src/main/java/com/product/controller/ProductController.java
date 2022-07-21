@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.product.service.ProductService;
 import org.springframework.web.multipart.MultipartFile;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -93,7 +96,6 @@ public class ProductController {
 		return response;
 	}
 
-
 	@GetMapping("/download/excel")
 	public void exportToExcelAndDownload(HttpServletResponse response) throws IOException {
 		response.setContentType("application/octet-stream");
@@ -110,6 +112,33 @@ public class ProductController {
 		log.info("excel file generated");
 		excelExporter.export(response);
 
+	}
+
+	@GetMapping("/download/csv")
+	public void exportToCSV(HttpServletResponse response) throws IOException {
+		response.setContentType("text/csv");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+		String currentDateTime = dateFormatter.format(new Date());
+
+		String headerKey = "Content-Disposition";
+		String headerValue = "attachment; filename=products_" + currentDateTime + ".csv";
+		response.setHeader(headerKey, headerValue);
+
+		List<Product> listProducts = productService.getProductList();
+
+		ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+		String[] csvHeader = { "Product Id", "Product Name", "Product Price", "Product Quantity", "Product Description",
+				"Product Type" };
+		String[] nameMapping = { "productId", "productName", "productPrice", "productDesc", "productQuantity",
+				"productType" };
+
+		csvWriter.writeHeader(csvHeader);
+
+		for (Product products : listProducts) {
+			csvWriter.write(products, nameMapping);
+		}
+		csvWriter.close();
+		log.info("csv file generated");
 	}
 
 	@PostMapping("/updateProduct")
@@ -173,10 +202,10 @@ public class ProductController {
 //		reportGenerationClient.exportToExcelAndDownload();
 //	}
 
-	@GetMapping("/download/csv")
-	public void downloadCsv(HttpServletResponse res) {
-		reportGenerationClient.exportToCSV();
-	}
+//	@GetMapping("/download/csv")
+//	public void downloadCsv(HttpServletResponse res) {
+//		reportGenerationClient.exportToCSV();
+//	}
 
 	// single product
 //	@PostMapping("/pro/{id}")
