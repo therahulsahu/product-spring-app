@@ -22,6 +22,7 @@ export class ReportComponent implements OnInit {
   selectedGroup: any;
   getVal() {
     console.log(this.selectedGroup); // returns selected object
+
     if(this.selectedGroup==="1"){
       this.productService.getValByPDF().subscribe((response: any) => {
         const blob = new Blob([response], { type: 'string' });
@@ -48,7 +49,7 @@ export class ReportComponent implements OnInit {
       });
 
     }
-    else{
+    else if (this.selectedGroup==="3"){
       this.productService.getValByCSV().subscribe((response: any) => {
         const blob = new Blob([response], { type: 'string' });
         const url= window.URL.createObjectURL(blob);     
