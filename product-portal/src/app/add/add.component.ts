@@ -45,15 +45,20 @@ export class AddComponent implements OnInit {
   // }
 
   //Multiple select
+  // prod = new FormControl('');
+  // prodList: { [key: string]: Object }[] = [
+  //   { item_id: 1, item_text: 'New mobile' },
+  //   { item_id: 2, item_text: 'New product' },
+  //   { item_id: 3, item_text: 'Amazing features' },
+  //   { item_id: 4, item_text: 'New version' },
+  //   { item_id: 5, item_text: 'New Themes' },
+  //   { item_id: 6, item_text: 'Color' }
+  // ];
+
+ 
   prod = new FormControl('');
-  prodList: { [key: string]: Object }[] = [
-    { item_id: 1, item_text: 'New mobile' },
-    { item_id: 2, item_text: 'New product' },
-    { item_id: 3, item_text: 'Amazing features' },
-    { item_id: 4, item_text: 'New version' },
-    { item_id: 5, item_text: 'New Themes' },
-    { item_id: 6, item_text: 'Color' }
-  ];
+  prodList: string[] = ['New mobile', 'New product', 'Amazing features', 'New version', 'New Themes', 'Color'];
+
 
   constructor(
     private productService: ProductService,
