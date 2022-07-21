@@ -49,25 +49,21 @@
       <p class="link"> <a href="https://material.angular.io/">click here</a> for Angular Material</p>
 
       <!-- Id -->
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="fill" required>
         <mat-label>ID</mat-label>
         <input matInput [(ngModel)]="productId" name="productId">
       </mat-form-field>
 
       <!-- Name -->
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="fill" required>
         <mat-label>Name</mat-label>
         <input matInput [(ngModel)]="productName" name="productName">
       </mat-form-field>
 
       <!-- Price   -->
-      <mat-form-field class="select" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Set Price</mat-label>
-        <mat-select [(value)]="selected" [(ngModel)]="productPrice" name="productPrice" required>
-          <mat-option *ngFor="let prices of price" [value]="prices.value">
-            {{prices.viewValue}}
-          </mat-option>
-        </mat-select>
+        <input matInput [(ngModel)]="productPrice" name="productPrice" required>
       </mat-form-field>
 
       <!-- Multiple select -->
@@ -119,21 +115,6 @@
       </mat-radio-group>
 
       <br><br>
-
-      <!-- check box-->
-      <section class="example-section" [formGroup]="toppings" name="checkbox">
-        <p>Select your Options:</p>
-        <p>
-          <mat-checkbox formControlName="storage">storage</mat-checkbox>
-        </p>
-        <p>
-          <mat-checkbox formControlName="RAM">RAM</mat-checkbox>
-        </p>
-        <p>
-          <mat-checkbox formControlName="camera">camera</mat-checkbox>
-        </p>
-      </section>
-      <br>
 
       <!-- Upload -->
       <p>upload files</p>

@@ -103,13 +103,4 @@ export class AddComponent implements OnInit {
     this.router.navigate(['/product']);
 
   }
-
-  //dropdown
-  selected = '';
-  price: Price[] = [
-    { value: '15000-20000', viewValue: '15000-20000' },
-    { value: '20000-30000', viewValue: '20000-30000' },
-    { value: '30000-50000', viewValue: '30000-50000' },
-  ];
-
 }
