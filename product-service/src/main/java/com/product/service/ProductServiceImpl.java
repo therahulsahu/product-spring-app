@@ -25,6 +25,8 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	KafkaTemplate<String, Product> kafkaTemplate;
 
+	ObjectMapper objectMapper = new ObjectMapper();
+
 	private static final String TOPIC = "product_topic";
 	
 	public List<Product> getProductList() {
@@ -39,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
 			products.add(product3);
 		}
 		try {
-			log.info("Getting product {}",new ObjectMapper().writeValueAsString(products));
+			log.info("Getting product {}",objectMapper.writeValueAsString(products));
 		} catch (JsonProcessingException e) {
 			log.error("error while getting product {}",e);
 			e.printStackTrace();
@@ -52,7 +54,7 @@ public class ProductServiceImpl implements ProductService {
 			productRepository.saveAll(productList);
 //			productList.forEach(product -> kafkaTemplate.send(TOPIC, product));
 			log.info("Published to topic : " + TOPIC);
-			log.info("Adding product {}",new ObjectMapper().writeValueAsString(productList));
+			log.info("Adding product {}",objectMapper.writeValueAsString(productList));
 		}
 		catch (IllegalArgumentException e) {
 			// In case the given entities or any of the entities is null.
@@ -69,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
 	public boolean deleteProducts(List<Product> productList) {
 		try {
 			productRepository.deleteAll(productList);
-			log.info("Deleting product {}",new ObjectMapper().writeValueAsString(productList));
+			log.info("Deleting product {}",objectMapper.writeValueAsString(productList));
 		}
 		catch (Exception e) {
 			// In case the given entities or any of the entities is null.
@@ -91,7 +93,7 @@ public class ProductServiceImpl implements ProductService {
 		copyProductProperties(currentProduct, updatedProduct);
 		productRepository.save(currentProduct);
 		try {
-			log.info("Adding product {}",new ObjectMapper().writeValueAsString(Collections.singletonList(updatedProduct)));
+			log.info("Adding product {}",objectMapper.writeValueAsString(Collections.singletonList(updatedProduct)));
 		} catch (JsonProcessingException e) {
 			log.error("Product could not be updated : {}",e);
 			e.printStackTrace();

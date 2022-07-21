@@ -6,4 +6,4 @@ spring:
     bucket-name: "product"
 logging:
   file: 
-    name: /Users/harshith.sr/Downloads/logs/elk-stack.log
+    name: #(paste the path where your .log is present for example : /Users/harshith.sr/Downloads/logs/elk-stack.log)
