@@ -5,7 +5,7 @@
       Product Catalog
     </a>
   </li>
-  <li style="float:right"><a class="active" routerLink="/Login">
+  <li style="float:right"><a class="active" style="color:white" routerLink="/Login">
       <mat-icon aria-hidden="false" aria-label="Example Logout icon">logout</mat-icon>Logout
     </a>
   </li>
@@ -40,22 +40,22 @@
 
   </mat-sidenav>
   <mat-sidenav-content>
-     <br>
+    <br>
 
     <!-- form -->
-    <form class="form" (ngSubmit)="createProduct()">
+    <form class="form" novalidate>
 
       <h1>ADD Products</h1>
       <p class="link"> <a href="https://material.angular.io/">click here</a> for Angular Material</p>
 
       <!-- Id -->
-      <mat-form-field class="example-full-width" appearance="fill" required>
+      <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>ID</mat-label>
-        <input matInput [(ngModel)]="productId" name="productId">
+        <input matInput [(ngModel)]="productId" name="productId" required>
       </mat-form-field>
 
       <!-- Name -->
-      <mat-form-field class="example-full-width" appearance="fill" required>
+      <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Name</mat-label>
         <input matInput [(ngModel)]="productName" name="productName">
       </mat-form-field>
@@ -63,16 +63,16 @@
       <!-- Price   -->
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Set Price</mat-label>
-        <input matInput [(ngModel)]="productPrice" name="productPrice" required>
+        <input matInput [(ngModel)]="productPrice" name="productPrice">
       </mat-form-field>
 
       <!-- Multiple select -->
-      <mat-form-field class="example-full-width" appearance="fill">
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Select Multiple</mat-label>
         <mat-select [(ngModel)]="prod" multiple name="prod">
           <mat-option *ngFor="let prod of prodList" [value]="prod">{{prod}}</mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
 
       <!-- Description   -->
       <mat-form-field class="example-full-width" appearance="fill">
@@ -109,11 +109,15 @@
       <label>Type: </label>
       <mat-radio-group aria-label="Select an option" id="Type" name="productType" class="type" [(ngModel)]="productType"
         required>
-        <mat-radio-button value="1">Laptop</mat-radio-button>
-        <mat-radio-button value="2">Mobile</mat-radio-button>
-        <mat-radio-button value="3">Tablet</mat-radio-button>
+        <mat-radio-button value="Laptop">Laptop</mat-radio-button>
+        <mat-radio-button value="Mobile">Mobile</mat-radio-button>
+        <mat-radio-button value="Tablet">Tablet</mat-radio-button>
       </mat-radio-group>
 
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Set Price</mat-label>
+        <input matInput [(ngModel)]="productPrice" name="productPrice">
+      </mat-form-field> -->
       <br><br>
 
       <!-- Upload -->

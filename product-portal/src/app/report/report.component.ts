@@ -11,11 +11,11 @@ import { ProductService } from '../product.service';
 export class ReportComponent implements OnInit {
   router: any;
 
-  constructor(private productService : ProductService) { }
+  constructor(private productService: ProductService) { }
 
-  
 
-     
+
+
 
   ngOnInit(): void {
   }
@@ -23,61 +23,61 @@ export class ReportComponent implements OnInit {
   getVal() {
     console.log(this.selectedGroup); // returns selected object
 
-    if(this.selectedGroup==="1"){
+    if (this.selectedGroup === "1") {
       this.productService.getValByPDF().subscribe((response: any) => {
         const blob = new Blob([response], { type: 'string' });
-        const url= window.URL.createObjectURL(blob);     
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         console.log(link);
         document.body.appendChild(link);
         link.href = url;
-        link.download="report.pdf";
-        link.click(); 
+        link.download = "report.pdf";
+        link.click();
       });
-    } 
-     else if(this.selectedGroup==="2"){
+    }
+    else if (this.selectedGroup === "2") {
       this.productService.getValByExcel().subscribe((response: any) => {
         const blob = new Blob([response], { type: 'string' });
-        const url= window.URL.createObjectURL(blob);     
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         console.log(link);
         console.log(url);
         document.body.appendChild(link);
         link.href = url;
-        link.download="report.xlsx";
-        link.click(); 
+        link.download = "report.xlsx";
+        link.click();
       });
 
     }
-    else if (this.selectedGroup==="3"){
+    else if (this.selectedGroup === "3") {
       this.productService.getValByCSV().subscribe((response: any) => {
         const blob = new Blob([response], { type: 'string' });
-        const url= window.URL.createObjectURL(blob);     
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         document.body.appendChild(link);
         link.href = url;
-        link.download="report.csv";
-        link.click(); 
+        link.download = "report.csv";
+        link.click();
       });
 
     }
 
-}
+  }
 
   groups = [{
-      "id": 1,
-      "name": "Download PDF",
-      "items": "pdf"
+    "id": 1,
+    "name": "Download PDF",
+    "items": "pdf"
   },
   {
-      "id": 2,
-      "name": "Download Excel",
-      "items": "excel"
+    "id": 2,
+    "name": "Download Excel",
+    "items": "excel"
   },
   {
-      "id": 3,
-      "name": "Download CSV",
-      "items": "csv"
+    "id": 3,
+    "name": "Download CSV",
+    "items": "csv"
   }];
 
 

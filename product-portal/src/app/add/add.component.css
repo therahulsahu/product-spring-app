@@ -1,4 +1,5 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
 /* form */
 .form {
     width: 400px;
@@ -12,6 +13,7 @@
     box-sizing: border-box;
     padding: 30px 30px;
 }
+
 .form input[type="text"] {
     border: none;
     border: 1px solid #ccc;
@@ -19,12 +21,14 @@
     height: 30px;
     width: 350px;
 }
+
 .form label {
     margin: 0;
     padding: 0;
     font-weight: bold;
     text-align: left;
 }
+
 /* select multiple */
 .mul {
     border: none;
@@ -33,11 +37,13 @@
     height: 30px;
     width: 250px;
 }
+
 .btn {
     text-align: center;
     margin: 70px auto 0;
     font-family: Book Antiqua;
 }
+
 .btn a {
     width: 150px;
     text-decoration: none;
@@ -47,6 +53,7 @@
     border: .5px solid black;
     position: relative;
 }
+
 .btn a span {
     width: 0;
     height: 100%;
@@ -59,12 +66,14 @@ mat-sidenav {
     margin: 5px;
     width: 200px;
     border-right: none;
-    background: palevioletred;
+    background: rgb(242, 98, 122);
+    ;
     color: white;
     border-radius: 0px;
     padding: 16px;
     text-align: center;
 }
+
 .content {
     height: calc(100vh - 100px);
     border-radius: 10px;
@@ -76,9 +85,11 @@ mat-sidenav {
     font-size: 2rem;
     color: lightgray;
 }
+
 mat-sidenav-container {
     height: calc(100vh - 65px);
 }
+
 .menu-button {
     width: 100%;
     display: flex;
@@ -86,9 +97,11 @@ mat-sidenav-container {
     justify-content: flex-start;
     font-size: 1rem;
 }
+
 mat-icon {
     margin-right: 8px;
 }
+
 ng-select {
     width: 100%;
     padding: 7px 20px;
@@ -98,45 +111,56 @@ ng-select {
     box-sizing: border-box;
     color: #000;
 }
+
 mat-checkbox {
     font-family: fantasy;
     color: #000;
 }
+
 .mat-radio-button~.mat-radio-button {
     margin-left: 16px;
 }
+
 .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
 }
+
 .example-full-width {
     width: 100%;
 }
+
 .text {
     text-align: center;
     font-size: 50px;
     font-style: italic;
 }
+
 .button {
     border: none;
     outline: none;
     height: 40px;
-    background: palevioletred;
+    background: rgb(242, 98, 122);
+    ;
     color: #fff;
     font-size: 20px;
     border-radius: 10px;
     width: 100px;
 }
+
 .button:hover {
     cursor: pointer;
     color: #000;
 }
-p, label {
+
+p,
+label {
     text-align: left;
     font-family: Abril Fatface;
     font-size: 20px;
 }
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -144,9 +168,11 @@ ul {
     overflow: hidden;
     background-color: #ebebeb;
 }
+
 li {
     float: left;
 }
+
 li a {
     display: block;
     color: black;
@@ -154,34 +180,43 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
+
 .active {
     background-color: rgb(242, 98, 122);
 }
+
 h1 {
     font-family: fantasy;
     color: black;
     font-weight: bold;
 }
+
 a {
     font-size: 25px;
     font-family: fantasy;
 }
+
 .link {
     text-align: center;
 }
+
 .example-full-width {
     width: 100%;
 }
+
 .select {
     width: 100%;
 }
+
 .qn {
     width: 100%;
 }
+
 .stepper__input {
     display: flex;
     align-items: center;
 }
+
 .stepper__input button {
     cursor: pointer;
     background-color: rgb(242, 98, 122);

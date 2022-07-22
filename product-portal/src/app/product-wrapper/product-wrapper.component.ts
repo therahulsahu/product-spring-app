@@ -7,7 +7,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class ProductWrapperComponent implements OnInit {
 
-  
+
 
   constructor() { }
 

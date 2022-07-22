@@ -1,29 +1,30 @@
-
-  <ul>
+<ul>
     <li>
-      <a><mat-icon>home</mat-icon>Product Catalog
-      </a>
-            
+        <a>
+            <mat-icon>home</mat-icon>Product Catalog
+        </a>
+
     </li>
-    
-    <li style="float:right"><a class= "active" style="color:white" routerLink="/Login">
-        <mat-icon aria-hidden="false" aria-label="Example Logout icon">logout</mat-icon>Logout</a></li>
-  
-    
-  </ul>
+
+    <li style="float:right"><a class="active" style="color:white" routerLink="/Login">
+            <mat-icon aria-hidden="false" aria-label="Example Logout icon">logout</mat-icon>Logout
+        </a></li>
 
 
-  <mat-drawer-container class="example-container">
-    <mat-drawer class="mat-sidenav" mode="side"  opened>
-        <button mat-button class="menu-button" >  
+</ul>
+
+
+<mat-drawer-container class="example-container">
+    <mat-drawer class="mat-sidenav" mode="side" opened>
+        <button mat-button class="menu-button">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
-        <button mat-button class="menu-button"  routerLink="/add">
+        <button mat-button class="menu-button" routerLink="/add">
             <mat-icon>add</mat-icon>
             <span>Add Products</span>
         </button>
-        
+
         <button mat-button class="menu-button" routerLink="/product">
             <mat-icon>list</mat-icon>
             <span>Show Products</span>
@@ -33,7 +34,7 @@
             <mat-icon>description</mat-icon>
             <span>Generate Report</span>
         </button> -->
-       
+
         <button mat-button class="menu-button">
             <mat-icon>help</mat-icon>
             <span>Help</span>
@@ -48,19 +49,17 @@
             <h1>Welcome <br><br><br>To<br><br><br> Product Catalog</h1>
         </div>
     </mat-drawer-content>
-  </mat-drawer-container>
+</mat-drawer-container>
 
-  <div class="list">    
+<div class="list">
     <!-- main content container -->
     <div class="jumbotron">
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-8 offset-sm-2">
-                  <router-outlet></router-outlet>
-              </div>
-          </div>
-      </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    
-    
+</div>

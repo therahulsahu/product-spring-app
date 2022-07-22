@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 
+
 interface Price {
   value: string;
   viewValue: string;
@@ -19,6 +20,9 @@ export class AddComponent implements OnInit {
   toppings: FormGroup;
   title = 'angular-key-press-example';
 
+
+  invalidCredentials: boolean = false;
+  ProductForm !: FormGroup;
   productId: any;
   productName: any;
   productDesc: any;
@@ -30,32 +34,6 @@ export class AddComponent implements OnInit {
   check: any;
   checkbox: any;
   date: any;
-
- 
-  // Only Integer Numbers
-  // keyPressNumbers(event: any) {
-  //   var charCode = (event.which) ? event.which : event.keyCode;
-  //   // Only Numbers 0-9
-  //   if ((charCode < 48 || charCode > 57)) {
-  //     event.preventDefault();
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
-
-  //Multiple select
-  // prod = new FormControl('');
-  // prodList: { [key: string]: Object }[] = [
-  //   { item_id: 1, item_text: 'New mobile' },
-  //   { item_id: 2, item_text: 'New product' },
-  //   { item_id: 3, item_text: 'Amazing features' },
-  //   { item_id: 4, item_text: 'New version' },
-  //   { item_id: 5, item_text: 'New Themes' },
-  //   { item_id: 6, item_text: 'Color' }
-  // ];
-
- 
   prod = new FormControl('');
   prodList: string[] = ['New mobile', 'New product', 'Amazing features', 'New version', 'New Themes', 'Color'];
 
@@ -75,10 +53,10 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  radio = ["Laptop", "Mobile", "Tablet"]
 
   //quantity
   quantity: number = 1;
-
   plus() {
     this.quantity = this.quantity + 1;
   }
@@ -86,7 +64,6 @@ export class AddComponent implements OnInit {
     if (this.quantity != 0) {
       this.quantity = this.quantity - 1;
     }
-
   }
 
 
@@ -100,12 +77,9 @@ export class AddComponent implements OnInit {
       productQuantity: this.productQuantity,
       productType: this.productType,
     }]
-
-
     this.productService.save(newProduct).subscribe(data => {
       console.log("success");
+      this.router.navigate(['/product']);
     });
-    this.router.navigate(['/product']);
-
   }
 }

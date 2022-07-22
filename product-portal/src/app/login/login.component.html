@@ -1,43 +1,38 @@
-
-          
-
-
 <!-- HTML -->
 <br><br><br>
 <div class="header">
-<h1>PRODUCT CATALOG</h1>
+    <h1>PRODUCT CATALOG</h1>
 </div>
 <form (ngSubmit)="handleLogin()" novalidate class="form">
     <h2>LOGIN</h2>
     <div>
         <p>UserName</p>
-            <input type="text"  id="userName" [(ngModel)]="userName" name="userName" matInput required minlength="2" #userNameValidation="ngModel">
-    
-        
-        
-</div>
-<mat-error *ngIf="userNameValidation.errors?.['minlength']">
-    min length is 2
-</mat-error>
-<mat-error *ngIf="userNameValidation.errors?.['required']">
-    UserName is required 
-</mat-error>
-<div>
+        <input type="text" id="userName" [(ngModel)]="userName" name="userName" matInput required minlength="2"
+            #userNameValidation="ngModel">
+
+        <mat-error *ngIf="userNameValidation.errors?.['required']">
+            UserName is required
+        </mat-error>
+        <mat-error *ngIf="userNameValidation.errors?.['minlength']">
+            min length is 2
+        </mat-error>
+    </div>
+    <div>
         <p>password</p>
-        <input type="password" matInput  [(ngModel)]="userPassword" name="userPassword" required minlength="3" #passwordValidation="ngModel">
-      
-</div>
-<mat-error *ngIf="passwordValidation.errors?.['required']">
-    Password is required
-</mat-error>
-<mat-error *ngIf="passwordValidation.errors?.['minlength']">
-    min length is 3
-</mat-error>
+        <input type="password" matInput [(ngModel)]="userPassword" name="userPassword" required minlength="3"
+            #passwordValidation="ngModel">
+        <mat-error *ngIf="passwordValidation.errors?.['required']">
+            Password is required
+        </mat-error>
+        <mat-error *ngIf="passwordValidation.errors?.['minlength']">
+            min length is 3
+        </mat-error>
 
-<mat-error  *ngIf="invalidCredentials" class="error">
-    Invalid Credentials
-</mat-error>
+        <mat-error *ngIf="invalidCredentials" class="error">
+            Invalid Credentials
+        </mat-error>
+    </div>
 
-<br>
-<button mat-flat-button color="primary">Login</button>
+    <br>
+    <button mat-flat-button color="primary">Login</button>
 </form>
