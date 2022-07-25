@@ -3,7 +3,10 @@
 1.	Make sure that JAVA_HOME environment is set up
 2.	https://www.youtube.com/watch?v=9g-h1biMn2E is the main video that I have referred
 3.	Make sure to install logstash-7.15.0, kibana-7.15.0-darwin-x86_64, elasticsearch-7.15.0
-4.	In my project I have not created a config file but I have sent the parameters in terminal
+https://www.elastic.co/downloads/past-releases/logstash-7-15-0
+https://www.elastic.co/downloads/past-releases/elasticsearch-7-15-0
+https://www.elastic.co/downloads/past-releases/kibana-7-15-0
+5.	In my project I have not created a config file but I have sent the parameters in terminal
 
 
 
