@@ -58,7 +58,9 @@ export class DialogBoxComponent implements OnInit {
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<DialogBoxComponent>
-  ) { }
+  ) {
+    this.quantity = parseInt(this.editData.productQuantity);
+   }
 
   ngOnInit(): void {
     this.ProductForm = this.formBuilder.group({
@@ -112,6 +114,7 @@ export class DialogBoxComponent implements OnInit {
 
   }
   updateProduct() {
+    this.ProductForm.controls['productQuantity'].setValue(this.quantity);
     this.productService.updateProduct(this.ProductForm.value, this.editData.productId).subscribe(data => {
 
       this.ProductForm.reset();
