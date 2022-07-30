@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-07-30T09:51:56 IST" name="Default suite" finished-at="2022-07-30T09:52:54 IST" duration-ms="57588">
+    <groups>
+    </groups>
+    <test started-at="2022-07-30T09:51:56 IST" name="Default test" finished-at="2022-07-30T09:52:54 IST" duration-ms="57588">
+      <class name="TestNG.testng">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:TestNG.testng@35229f85]" started-at="2022-07-30T09:51:56 IST" name="beforeMethod" finished-at="2022-07-30T09:52:11 IST" duration-ms="14867" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TestCase1(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:TestNG.testng@35229f85]" started-at="2022-07-30T09:52:12 IST" name="TestCase1" data-provider="excel_data" finished-at="2022-07-30T09:52:19 IST" duration-ms="7310" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[realme]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[realme has many features]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[15000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase1 -->
+        <test-method signature="TestCase1(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:TestNG.testng@35229f85]" started-at="2022-07-30T09:52:19 IST" name="TestCase1" data-provider="excel_data" finished-at="2022-07-30T09:52:27 IST" duration-ms="7259" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[oppo]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[good camera]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase1 -->
+        <test-method signature="TestCase1(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:TestNG.testng@35229f85]" started-at="2022-07-30T09:52:27 IST" name="TestCase1" data-provider="excel_data" finished-at="2022-07-30T09:52:34 IST" duration-ms="7280" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[samsung]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[best mobile]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[13000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase1 -->
+        <test-method is-config="true" signature="testcase1()[pri:0, instance:TestNG.testng@35229f85]" started-at="2022-07-30T09:52:34 IST" name="testcase1" finished-at="2022-07-30T09:52:54 IST" duration-ms="19969" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcase1 -->
+      </class> <!-- TestNG.testng -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

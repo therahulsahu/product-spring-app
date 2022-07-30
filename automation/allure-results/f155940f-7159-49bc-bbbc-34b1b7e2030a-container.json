@@ -1,0 +1,1 @@
+{"uuid":"f155940f-7159-49bc-bbbc-34b1b7e2030a","name":"TestNG.testng","children":["97225173-4543-40a1-8b5b-13a43c070f6f"],"befores":[{"name":"beforeMethod","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1655905147739,"stop":1655905152415}],"afters":[],"start":1655905147693,"stop":1655905153913}
