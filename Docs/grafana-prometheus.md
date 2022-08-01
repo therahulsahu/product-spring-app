@@ -27,7 +27,23 @@ https://grafana.com/grafana/download?platform
 	<scope>runtime</scope>
 </dependency>
 ```
+-After adding the dependency you have to head in to the prometheus folder(check the directory where the prometheus is being installed and open the prometheus folder once it is found and head to the prometheus.yml and add the following:
 
+ - job_name: "spring-actuator"
+ 
+    metrics_path: "/actuator/prometheus"
+    
+    scrape_interval: 5s
+    
+    static_configs :
+    
+    - targets: ["localhost:8080"]
+ 
+ -It should look something like below.
+ 
+ <img width="724" alt="Screen Shot 2022-08-01 at 2 58 10 PM" src="https://user-images.githubusercontent.com/76655727/182118381-1d526877-ad7b-43db-a217-be126094d165.png">
+
+ 
 - After the installation is successfully completed, you can check `http://localhost:3000/` this is the page for Grafana.
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/76655727/178793085-60132b96-6b1d-48e3-9368-61d8e2ef07a8.png">
