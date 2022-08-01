@@ -20,7 +20,7 @@ How to automation project:
 
 Before running the restassured project in our local. we need to run the below command in terminal which will install Json server.
 
-sudo npm install -g json-server
+sudo npm install -g json-server.
 
 
 
