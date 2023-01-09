@@ -29,7 +29,7 @@ This repository contains a collection of Spring boot micro-services and a fronte
 ## How to Run:
 1. Start the couchbase db and make a bucket named `products`.
 
-2. Create a primay index on your bucket by running this query in query screen : `CREATE PRIMARY INDEX `product-idx` ON `products` USING GSI;`
+2. Create a primay index on your bucket by running this query in query screen : CREATE PRIMARY INDEX `product-idx` ON `products` USING GSI;
 
 3. Start the Frontend application (Product Portal) using `npm install` and then `ng serve --open` in root directory of the application. It will automatically open your default browser with `localhost:4200`.
 
